@@ -21,7 +21,11 @@
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-.byebug_history
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
+/public/assets
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

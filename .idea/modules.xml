@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cms-content-ruby.iml" filepath="$PROJECT_DIR$/.idea/cms-content-ruby.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/trello.iml" filepath="$PROJECT_DIR$/.idea/trello.iml" />
     </modules>
   </component>
 </project>

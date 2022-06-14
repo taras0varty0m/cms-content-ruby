@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Created by: https://docs.docker.com/samples/rails/ 
