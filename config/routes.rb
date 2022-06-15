@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :events
+      resources :screens
+      resources :playlists
+      resources :contents
+      resources :playlist_contents
       mount_devise_token_auth_for 'User', at: 'auth'
     end
   end
