@@ -6,5 +6,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  has_many :contents
   has_many :events
+  has_many :playlists
+  has_many :screens
+  has_many :playlist_contents
 end
