@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20_220_531_060_809) do
 
   create_table 'contents', force: :cascade do |t|
     t.bigint 'user_id', null: false
-    t.string 'fileKey', null: false
+    t.string 'file_key', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['fileKey'], name: 'index_contents_on_fileKey', unique: true
+    t.index ['file_key'], name: 'index_contents_on_file_key', unique: true
     t.index ['user_id'], name: 'index_contents_on_user_id'
   end
 
