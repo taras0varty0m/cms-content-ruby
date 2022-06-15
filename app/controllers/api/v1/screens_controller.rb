@@ -15,7 +15,11 @@ module Api
       end
 
       def create
-        screen = Api::V1::Screen::CreateScreenService.new(params[:name], params[:event_id], current_user.id).call
+        screen = Api::V1::Screen::CreateScreenService.new(
+          params[:name],
+          params[:event_id],
+          current_user.id
+        ).call
         render json: screen, status: :created
       end
 

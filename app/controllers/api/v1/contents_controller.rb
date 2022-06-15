@@ -15,7 +15,10 @@ module Api
       end
 
       def create
-        content = Api::V1::Content::CreateContentService.new(params[:file_key], current_user.id).call
+        content = Api::V1::Content::CreateContentService.new(
+          params[:file_key],
+          current_user.id
+        ).call
         render json: content, status: :created
       end
 
