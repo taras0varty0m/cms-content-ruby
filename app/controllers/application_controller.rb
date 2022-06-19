@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
   rescue_from StandardError, with: :render_standard_error
   rescue_from ActiveRecord::RecordNotUnique, with: :render_not_unique_error
+  rescue_from CanCan::AccessDenied, with: :render_not_authorized_error
 
   private
 
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::API
 
   def render_standard_error(error)
     render json: { error: error.message }, status: :internal_server_error
+  end
+
+  def render_not_authorized_error(error)
+    render json: { error: error.message }, status: :unauthorized
   end
 end
