@@ -3,7 +3,8 @@
 module Api
   module V1
     class PlaylistContentsController < AuthenticationController
-      before_action :authenticate_user!, except: %i[index show]
+      before_action :authenticate_user!
+      load_and_authorize_resource
 
       def index
         render json: ::PlaylistContent.all, status: :ok
