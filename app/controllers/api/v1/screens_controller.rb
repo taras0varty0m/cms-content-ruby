@@ -4,15 +4,14 @@ module Api
   module V1
     class ScreensController < AuthenticationController
       before_action :authenticate_user!
-      load_and_authorize_resource
+      load_and_authorize_resource :screen, class: ::Screen
 
       def index
-        render json: ::Screen.all, status: :ok
+        render json: @screens, status: :ok
       end
 
       def show
-        screen = ::Screen.find params[:id]
-        render json: screen, status: :ok
+        render json: @screen, status: :ok
       end
 
       def create

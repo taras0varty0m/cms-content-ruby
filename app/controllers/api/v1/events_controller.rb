@@ -4,15 +4,14 @@ module Api
   module V1
     class EventsController < AuthenticationController
       before_action :authenticate_user!
-      load_and_authorize_resource
+      load_and_authorize_resource :event, class: ::Event
 
       def index
-        render json: ::Event.all, status: :ok
+        render json: @events, status: :ok
       end
 
       def show
-        event = ::Event.find params[:id]
-        render json: event, status: :ok
+        render json: @event, status: :ok
       end
 
       def create

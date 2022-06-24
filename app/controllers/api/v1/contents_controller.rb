@@ -4,15 +4,14 @@ module Api
   module V1
     class ContentsController < AuthenticationController
       before_action :authenticate_user!
-      load_and_authorize_resource
+      load_and_authorize_resource :content, class: ::Content
 
       def index
-        render json: ::Content.all, status: :ok
+        render json: @contents, status: :ok
       end
 
       def show
-        content = ::Content.find params[:id]
-        render json: content, status: :ok
+        render json: @content, status: :ok
       end
 
       def create

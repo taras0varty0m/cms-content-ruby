@@ -4,15 +4,14 @@ module Api
   module V1
     class PlaylistsController < AuthenticationController
       before_action :authenticate_user!
-      load_and_authorize_resource
+      load_and_authorize_resource :playlist, class: ::Playlist
 
       def index
-        render json: ::Playlist.all, status: :ok
+        render json: @playlists, status: :ok
       end
 
       def show
-        playlist = ::Playlist.find params[:id]
-        render json: playlist, status: :ok
+        render json: @playlist, status: :ok
       end
 
       def create
