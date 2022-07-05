@@ -6,7 +6,11 @@ Rails.application.routes.draw do
       resources :events
       resources :screens
       resources :playlists
-      resources :contents
+      resources :contents do
+        collection do
+          post 'upload_s3_file_link'
+        end
+      end
       resources :playlist_contents
       mount_devise_token_auth_for 'User', at: 'auth'
     end

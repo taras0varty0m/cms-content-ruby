@@ -82,3 +82,7 @@ gem 'devise_token_auth', '~> 1.2'
 gem 'net-smtp', require: false
 
 gem 'cancancan'
+
+gem 'aws-sdk-s3'
+
+gem 'aws-sdk-rails'

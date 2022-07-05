@@ -31,6 +31,11 @@ module Api
         Api::V1::Content::DeleteContentService.new(params[:id]).call
         render json: { message: 'Content successfully deleted' }, status: :no_content
       end
+
+      def upload_s3_file_link
+        url = Api::V1::Content::GetSignedUploadUrlService.new(params[:filename]).call
+        render json: { url: }, status: :ok
+      end
     end
   end
 end
