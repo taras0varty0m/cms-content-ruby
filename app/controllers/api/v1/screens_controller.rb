@@ -15,7 +15,7 @@ module Api
       end
 
       def create
-        screen = Api::V1::Screen::CreateScreenService.new(
+        screen = Screens::CreateScreenService.new(
           params[:name],
           params[:event_id],
           current_user.id
@@ -24,12 +24,12 @@ module Api
       end
 
       def update
-        Api::V1::Screen::UpdateScreenService.new(params[:id], params[:name]).call
+        Screens::UpdateScreenService.new(params[:id], params[:name]).call
         render json: { message: 'Screen successfully updated' }, status: :ok
       end
 
       def destroy
-        Api::V1::Screen::DeleteScreenService.new(params[:id]).call
+        Screens::DeleteScreenService.new(params[:id]).call
         render json: { message: 'Screen successfully deleted' }, status: :no_content
       end
     end

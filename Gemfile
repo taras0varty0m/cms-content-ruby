@@ -86,3 +86,5 @@ gem 'cancancan'
 gem 'aws-sdk-s3'
 
 gem 'aws-sdk-rails'
+
+gem 'active_model_serializers'

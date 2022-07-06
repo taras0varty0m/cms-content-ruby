@@ -15,17 +15,17 @@ module Api
       end
 
       def create
-        event = Api::V1::Event::CreateEventService.new(params[:title], current_user.id).call
+        event = Events::CreateEventService.new(params[:title], current_user.id).call
         render json: event, status: :created
       end
 
       def update
-        Api::V1::Event::UpdateEventService.new(params[:id], params[:title]).call
+        Events::UpdateEventService.new(params[:id], params[:title]).call
         render json: { message: 'Event successfully updated' }, status: :ok
       end
 
       def destroy
-        Api::V1::Event::DeleteEventService.new(params[:id]).call
+        Events::DeleteEventService.new(params[:id]).call
         render json: { message: 'Event successfully deleted' }, status: :no_content
       end
     end

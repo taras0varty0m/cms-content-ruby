@@ -15,7 +15,7 @@ module Api
       end
 
       def create
-        playlist_content = Api::V1::PlaylistContent::CreatePlaylistContentService.new(
+        playlist_content = PlaylistContents::CreatePlaylistContentService.new(
           params[:duration],
           params[:priority],
           params[:playlist_id],
@@ -26,7 +26,7 @@ module Api
       end
 
       def update
-        Api::V1::PlaylistContent::UpdatePlaylistContentService.new(
+        PlaylistContents::UpdatePlaylistContentService.new(
           params[:id],
           params[:duration],
           params[:priority]
@@ -35,7 +35,7 @@ module Api
       end
 
       def destroy
-        Api::V1::PlaylistContent::DeletePlaylistContentService.new(params[:id]).call
+        PlaylistContents::DeletePlaylistContentService.new(params[:id]).call
         render json: { message: 'PlaylistContent successfully deleted' }, status: :no_content
       end
     end

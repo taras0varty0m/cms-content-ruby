@@ -15,7 +15,7 @@ module Api
       end
 
       def create
-        playlist = Api::V1::Playlist::CreatePlaylistService.new(
+        playlist = Playlists::CreatePlaylistService.new(
           params[:title],
           params[:screen_id],
           current_user.id
@@ -24,12 +24,12 @@ module Api
       end
 
       def update
-        Api::V1::Playlist::UpdatePlaylistService.new(params[:id], params[:title]).call
+        Playlists::UpdatePlaylistService.new(params[:id], params[:title]).call
         render json: { message: 'Playlist successfully updated' }, status: :ok
       end
 
       def destroy
-        Api::V1::Playlist::DeletePlaylistService.new(params[:id]).call
+        Playlists::DeletePlaylistService.new(params[:id]).call
         render json: { message: 'Playlist successfully deleted' }, status: :no_content
       end
     end

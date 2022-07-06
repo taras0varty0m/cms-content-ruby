@@ -8,4 +8,10 @@ class Content < ApplicationRecord
   validates :user_id, presence: true
 
   has_many :playlist_contents
+
+  after_destroy :remove_from_storage
+
+  def remove_from_storage
+    Contents::RemoveFileService.new(file_key:).call
+  end
 end

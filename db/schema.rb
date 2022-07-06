@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20_220_531_060_809) do
     t.index ['user_id'], name: 'index_events_on_user_id'
   end
 
-  create_table 'playlist_content', force: :cascade do |t|
+  create_table 'playlist_contents', force: :cascade do |t|
     t.bigint 'user_id', null: false
     t.bigint 'content_id', null: false
     t.bigint 'playlist_id', null: false
@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 20_220_531_060_809) do
     t.decimal 'priority', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['content_id'], name: 'index_playlist_content_on_content_id'
-    t.index ['duration'], name: 'index_playlist_content_on_duration', unique: true
-    t.index ['playlist_id'], name: 'index_playlist_content_on_playlist_id'
-    t.index ['priority'], name: 'index_playlist_content_on_priority', unique: true
-    t.index ['user_id'], name: 'index_playlist_content_on_user_id'
+    t.index ['content_id'], name: 'index_playlist_contents_on_content_id'
+    t.index ['duration'], name: 'index_playlist_contents_on_duration', unique: true
+    t.index ['playlist_id'], name: 'index_playlist_contents_on_playlist_id'
+    t.index ['priority'], name: 'index_playlist_contents_on_priority', unique: true
+    t.index ['user_id'], name: 'index_playlist_contents_on_user_id'
   end
 
   create_table 'playlists', force: :cascade do |t|
@@ -98,9 +98,9 @@ ActiveRecord::Schema.define(version: 20_220_531_060_809) do
 
   add_foreign_key 'contents', 'users'
   add_foreign_key 'events', 'users'
-  add_foreign_key 'playlist_content', 'contents'
-  add_foreign_key 'playlist_content', 'playlists'
-  add_foreign_key 'playlist_content', 'users'
+  add_foreign_key 'playlist_contents', 'contents'
+  add_foreign_key 'playlist_contents', 'playlists'
+  add_foreign_key 'playlist_contents', 'users'
   add_foreign_key 'playlists', 'screens'
   add_foreign_key 'playlists', 'users'
   add_foreign_key 'screens', 'events'
