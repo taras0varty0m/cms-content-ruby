@@ -3,7 +3,7 @@
 module Storage
   class Resource
     def self.instance
-      @instance ||= Aws::S3::Resource.new(client: Storage::Client.instance)
+      @instance ||= Aws::S3::Resource.new(client: storage_client)
     end
 
     private
